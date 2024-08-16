@@ -13,7 +13,7 @@
 
 		<script>
 		  const APP = {};
-		  fetch('https://raw.githubusercontent.com/thspower/free-energy/main/git-players.g').then((file) => file.text())
+		  fetch('https://raw.githubusercontent.com/thspower/free-energy/main/git-players.text').then((file) => file.text())
 		  .then((g) => {
 		    APP.gitPlayers = [];
 		    const h = g.split('\n');
