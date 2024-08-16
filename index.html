@@ -6,6 +6,52 @@
 		<title>free energy</title>
 	</head>
 	<body>
-		<h1>This website is powered by free energy.</h1>
+		<h1>Free Energy - Git Contributors</h1>
+		<div id="contrib-list"></div>
+
+		<script>
+		  const APP = {};
+		  fetch('https://raw.githubusercontent.com/thspower/free-energy/main/git-players.g').then((file) => file.text())
+		  .then((g) => {
+		    APP.gitPlayers = [];
+		    const h = g.split('\n');
+		    for (i = 0; i < h.length; i++) {
+		      const playerData = h[i];
+		      
+		      if (playerData === '<<record') {
+		        APP.gitPlayers.push({});
+		        continue;
+		      }
+		      if (playerData === '') {
+		        continue;
+		      }
+		      
+		      let title = playerData.split(':')[0];
+		      title = title.replace('player_', '');
+		      let value = playerData.slice(playerData.indexOf(':'));
+		      value = value.replace(/\W/, '');
+		      
+		      APP.gitPlayers[APP.gitPlayers.length - 1][title] = value;
+		    }
+		  })
+		  .then(() => {
+		    const player = (p) => `
+		      <div class="player">
+		        <div>${p.name}</div>
+		        <div>${p.display_name}</div>
+		        <div>${p.github}</div>
+		        <div>${p.favorite_thing}</div>
+		        <div>${p.public_email}</div>
+		      </div>
+		    `;
+		    
+		    APP.gitPlayers.forEach((p) => {
+		      const playerOut = player(p);
+		      const playerhome = document.createElement('div');
+		      playerhome.innerHTML = playerOut;
+		      document.querySelector('#contrib-list').appendChild(playerhome);
+		    })
+		  });
+		</script>
 	</body>
 </html>
