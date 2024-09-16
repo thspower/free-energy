@@ -11,3 +11,18 @@ player_display_name: alexbrady
 player_github: https://github.com/iamalexbrady
 player_favorite_thing: The Light
 player_public_email: iamalexbrady@gmail.com
+
+<<record
+player_name: MTS
+player_display_name: MTSEnergy
+player_github: https://github.com/thspower
+player_favorite_thing: The pursuit of excellence
+player_public_email: silva.friends22@gmail.com
+
+<<record
+player_name: Ragnar
+player_display_name: RagnarViks
+player_github: https://github.com/vikis
+player_favorite_thing: Navigation
+player_public_email: ragnar@gmail.com
+
